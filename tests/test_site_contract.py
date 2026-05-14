@@ -68,6 +68,7 @@ def test_static_assets_are_present_and_self_contained() -> None:
         ROOT / "static" / "images" / "editorial-atlanta.png",
         ROOT / "static" / "images" / "piedmont-park-before-the-heat.png",
         ROOT / "static" / "images" / "buford-highway-pho.png",
+        ROOT / "static" / "favicon.ico",
     ]:
         assert asset.exists()
 
