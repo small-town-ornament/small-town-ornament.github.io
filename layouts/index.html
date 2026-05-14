@@ -17,11 +17,11 @@
   </section>
 
   <section class="segment-strip" aria-label="Editorial segments">
-    <a href="{{ "/segments/movement-and-fit/" | relURL }}">Movement &amp; Fit</a>
-    <a href="{{ "/segments/city-dispatches/" | relURL }}">City Dispatches</a>
-    <a href="{{ "/segments/getting-dressed/" | relURL }}">Getting Dressed</a>
-    <a href="{{ "/segments/farm-girl-files/" | relURL }}">Farm Girl Files</a>
-    <a href="{{ "/segments/open-season/" | relURL }}">Open Season</a>
+    <a href="{{ "/segments/movement-and-fit/" | relURL }}"><span>Movement &amp; Fit</span><small>Body notes</small></a>
+    <a href="{{ "/segments/city-dispatches/" | relURL }}"><span>City Dispatches</span><small>Atlanta walks</small></a>
+    <a href="{{ "/segments/getting-dressed/" | relURL }}"><span>Getting Dressed</span><small>Closet logic</small></a>
+    <a href="{{ "/segments/farm-girl-files/" | relURL }}"><span>Farm Girl Files</span><small>Roots and weather</small></a>
+    <a href="{{ "/segments/open-season/" | relURL }}"><span>Open Season</span><small>Loose essays</small></a>
   </section>
 
   <section class="section-block">
@@ -56,5 +56,14 @@
         </article>
       {{ end }}
     </div>
+  </section>
+
+  <section class="subscribe-panel" aria-label="Subscribe">
+    <div>
+      <p class="eyebrow">Subscribe</p>
+      <h2>Monthly small-town dispatches</h2>
+    </div>
+    <p>New essays, Atlanta favorites, clothes that have earned their keep, and farm-girl weather reports.</p>
+    <a class="feature-link" href="{{ "/index.xml" | relURL }}">RSS feed</a>
   </section>
 {{ end }}

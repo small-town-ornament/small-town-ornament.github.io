@@ -1,7 +1,16 @@
 {{ define "main" }}
+  {{ $segment := index .Params.segments 0 }}
+  {{ $segmentPage := false }}
+  {{ range where .Site.Pages "Section" "segments" }}
+    {{ if eq .Title $segment }}
+      {{ $segmentPage = . }}
+    {{ end }}
+  {{ end }}
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ $related := where (where $posts "Params.segments" "intersect" (slice $segment)) "RelPermalink" "!=" .RelPermalink }}
   <article class="article">
     <header class="article-head">
-      <p class="eyebrow">{{ index .Params.segments 0 }}</p>
+      <p class="eyebrow">{{ $segment }}</p>
       <h1>{{ .Title }}</h1>
       <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
     </header>
@@ -11,5 +20,31 @@
     <div class="article-body">
       {{ .Content }}
     </div>
+    <footer class="article-discovery" aria-label="Article navigation">
+      <div class="next-prev">
+        {{ with .NextInSection }}
+          <a href="{{ .RelPermalink }}"><span>Previous</span>{{ .Title }}</a>
+        {{ end }}
+        {{ with .PrevInSection }}
+          <a href="{{ .RelPermalink }}"><span>Next</span>{{ .Title }}</a>
+        {{ end }}
+      </div>
+
+      <div class="related-posts">
+        <h2>More from {{ $segment }}</h2>
+        {{ if $related }}
+          <div class="related-list">
+            {{ range first 3 $related }}
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p>More from this section is coming soon.</p>
+        {{ end }}
+        {{ with $segmentPage }}
+          <a class="back-link" href="{{ .RelPermalink }}">Back to {{ .Title }}</a>
+        {{ end }}
+      </div>
+    </footer>
   </article>
 {{ end }}

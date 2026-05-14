@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import re
 from pathlib import Path
 
 
@@ -22,6 +23,29 @@ def build_site(tmp_path: Path) -> Path:
 
 def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
+
+
+def markdown_body(path: Path) -> str:
+    text = read(path)
+    if text.startswith("---"):
+        return text.split("---", 2)[2]
+    return text
+
+
+def frontmatter_value(path: Path, key: str) -> str:
+    match = re.search(rf"^{key}:\s*\"([^\"]+)\"", read(path), re.MULTILINE)
+    assert match, f"{path.name} is missing {key}"
+    return match.group(1)
+
+
+def word_count(path: Path) -> int:
+    return len(re.findall(r"\b[\w'-]+\b", markdown_body(path)))
+
+
+def post_files() -> list[Path]:
+    return sorted(
+        post for post in (ROOT / "content" / "posts").glob("*.md") if post.name != "_index.md"
+    )
 
 
 def test_hugo_site_renders_editorial_core(tmp_path: Path) -> None:
@@ -50,11 +74,44 @@ def test_sample_content_uses_public_frontmatter_schemas(tmp_path: Path) -> None:
     assert "Piedmont Park Before The Heat" in post
     assert "Movement &amp; Fit" in post
     assert "hero-image" in post
+    assert "More from Movement &amp; Fit" in post
+    assert "Back to Movement &amp; Fit" in post
+    assert "Next" in post or "Previous" in post
 
     favorite = read(output / "favorites" / "buford-highway-pho" / "index.html")
     assert "Buford Highway Pho" in favorite
     assert "Restaurants" in favorite
     assert "Essential" in favorite
+
+
+def test_launch_posts_are_substantial_and_cover_farm_girl_files() -> None:
+    posts = post_files()
+    assert len(posts) >= 4
+    assert any("Farm Girl Files" in read(post) for post in posts)
+
+    for post in posts:
+        assert word_count(post) >= 400, f"{post.name} needs to read like an essay"
+        assert word_count(post) <= 900, f"{post.name} should stay blog-length"
+
+
+def test_posts_use_unique_existing_hero_images() -> None:
+    posts = post_files()
+    images = [frontmatter_value(post, "image") for post in posts]
+    assert len(images) == len(set(images))
+
+    for image in images:
+        assert image.startswith("/images/")
+        assert (ROOT / "static" / image.removeprefix("/")).exists()
+
+
+def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> None:
+    output = build_site(tmp_path)
+
+    index = read(output / "index.html")
+    assert "Subscribe" in index
+    assert 'href="/index.xml"' in index
+    assert "Monthly small-town dispatches" in index
+    assert "Farm Girl Files" in index
 
 
 def test_static_assets_are_present_and_self_contained() -> None:
@@ -66,7 +123,10 @@ def test_static_assets_are_present_and_self_contained() -> None:
 
     for asset in [
         ROOT / "static" / "images" / "editorial-atlanta.png",
+        ROOT / "static" / "images" / "oakland-cemetery-on-a-tuesday.png",
         ROOT / "static" / "images" / "piedmont-park-before-the-heat.png",
+        ROOT / "static" / "images" / "decatur-jacket.png",
+        ROOT / "static" / "images" / "screened-porch-to-city-balcony.png",
         ROOT / "static" / "images" / "buford-highway-pho.png",
         ROOT / "static" / "favicon.ico",
     ]:

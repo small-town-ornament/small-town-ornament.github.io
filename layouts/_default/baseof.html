@@ -27,7 +27,9 @@
       {{ block "main" . }}{{ end }}
     </main>
     <footer class="site-footer">
-      <p>A journal by {{ .Site.Params.author }}.</p>
+      <p><strong>Small-Town Ornament</strong> is a journal by {{ .Site.Params.author }}.</p>
+      <p>Monthly small-town dispatches on Atlanta, movement, getting dressed, favorites, and what follows a girl from a farm porch into the city.</p>
+      <a href="{{ "/index.xml" | relURL }}">Subscribe via RSS</a>
     </footer>
   </body>
 </html>
