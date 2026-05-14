@@ -381,20 +381,30 @@ h3 {
   text-transform: uppercase;
 }
 
-.favorite-facts {
+.favorite-facts,
+.article-notes {
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(3, 1fr);
   margin-top: 18px;
 }
 
-.favorite-facts div {
+.favorite-facts {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.article-notes {
+  grid-template-columns: 1fr;
+}
+
+.favorite-facts div,
+.article-notes div {
   background: var(--paper);
   border: 1px solid var(--line);
   padding: 12px;
 }
 
-.favorite-facts span {
+.favorite-facts span,
+.article-notes span {
   color: var(--muted);
   display: block;
   font-size: 0.72rem;
@@ -402,10 +412,27 @@ h3 {
   text-transform: uppercase;
 }
 
-.favorite-facts strong {
+.favorite-facts strong,
+.article-notes strong {
   color: var(--brown);
   display: block;
   margin-top: 4px;
+}
+
+.post-figure {
+  margin: 2rem 0;
+}
+
+.post-figure img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.post-figure figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.6rem;
 }
 
 .segment-index {
@@ -473,6 +500,7 @@ h3 {
   .favorite-grid,
   .index-row,
   .favorite-facts,
+  .article-notes,
   .segment-strip,
   .next-prev,
   .subscribe-panel {

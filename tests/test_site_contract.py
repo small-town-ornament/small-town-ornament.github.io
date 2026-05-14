@@ -78,10 +78,11 @@ def test_sample_content_uses_public_frontmatter_schemas(tmp_path: Path) -> None:
     assert "Back to Movement &amp; Fit" in post
     assert "Next" in post or "Previous" in post
 
-    favorite = read(output / "favorites" / "buford-highway-pho" / "index.html")
-    assert "Buford Highway Pho" in favorite
+    favorite = read(output / "favorites" / "pho-dai-loi-2" / "index.html")
+    assert "Pho Dai Loi #2" in favorite
     assert "Restaurants" in favorite
     assert "Essential" in favorite
+    assert "4186 Buford Hwy NE" in favorite
 
 
 def test_launch_posts_are_substantial_and_cover_farm_girl_files() -> None:
@@ -101,6 +102,7 @@ def test_posts_use_unique_existing_hero_images() -> None:
 
     for image in images:
         assert image.startswith("/images/")
+        assert image.endswith(".jpg")
         assert (ROOT / "static" / image.removeprefix("/")).exists()
 
 
@@ -114,6 +116,35 @@ def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> N
     assert "Farm Girl Files" in index
 
 
+def test_place_based_content_is_grounded() -> None:
+    favorite = ROOT / "content" / "favorites" / "2026-05-14-buford-highway-pho.md"
+    assert frontmatter_value(favorite, "title") != "Buford Highway Pho"
+    assert frontmatter_value(favorite, "address")
+    assert frontmatter_value(favorite, "hours")
+    assert frontmatter_value(favorite, "what_to_order")
+    assert frontmatter_value(favorite, "pro_tip")
+
+    required_post_fields = {
+        "2026-05-13-oakland-cemetery-on-a-tuesday.md": ["location_note"],
+        "2026-05-14-piedmont-park-before-the-heat.md": ["route_note", "what_i_wore"],
+        "2026-05-15-decatur-jacket.md": ["where_found", "piece_details"],
+    }
+
+    for filename, fields in required_post_fields.items():
+        post = ROOT / "content" / "posts" / filename
+        for field in fields:
+            assert frontmatter_value(post, field)
+
+
+def test_gallery_shortcode_supports_inline_photo_essays() -> None:
+    shortcode = ROOT / "layouts" / "shortcodes" / "post-image.html"
+    assert shortcode.exists()
+    text = read(shortcode)
+    assert ".Page.Params.gallery" in text
+    assert "<figure" in text
+    assert "figcaption" in text
+
+
 def test_static_assets_are_present_and_self_contained() -> None:
     css_path = ROOT / "assets" / "css" / "ornament.css"
     assert css_path.exists()
@@ -122,12 +153,12 @@ def test_static_assets_are_present_and_self_contained() -> None:
     assert "gradient" not in css.lower()
 
     for asset in [
-        ROOT / "static" / "images" / "editorial-atlanta.png",
-        ROOT / "static" / "images" / "oakland-cemetery-on-a-tuesday.png",
-        ROOT / "static" / "images" / "piedmont-park-before-the-heat.png",
-        ROOT / "static" / "images" / "decatur-jacket.png",
-        ROOT / "static" / "images" / "screened-porch-to-city-balcony.png",
-        ROOT / "static" / "images" / "buford-highway-pho.png",
+        ROOT / "static" / "images" / "editorial-atlanta.jpg",
+        ROOT / "static" / "images" / "oakland-cemetery-on-a-tuesday.jpg",
+        ROOT / "static" / "images" / "piedmont-park-before-the-heat.jpg",
+        ROOT / "static" / "images" / "decatur-jacket.jpg",
+        ROOT / "static" / "images" / "screened-porch-to-city-balcony.jpg",
+        ROOT / "static" / "images" / "buford-highway-pho.jpg",
         ROOT / "static" / "favicon.ico",
     ]:
         assert asset.exists()

@@ -3,7 +3,9 @@ title: "Piedmont Park Before The Heat"
 slug: "piedmont-park-before-the-heat"
 date: 2026-05-14
 segments: ["Movement & Fit"]
-image: "/images/piedmont-park-before-the-heat.png"
+image: "/images/piedmont-park-before-the-heat.jpg"
+route_note: "Start near the 12th Street entrance, loop past the Active Oval and Lake Clara Meer, then cut back before the heat settles in. Best before 7:30 AM."
+what_i_wore: "Black running shorts, white tank, old broken-in trainers, hair up, no performance costume."
 tags: ["atlanta", "running", "morning"]
 ---
 
@@ -15,7 +17,7 @@ I wore the black shorts that do not ride up, the tank that has survived more lau
 
 That early, the park is not empty. It is better than empty. It is occupied by people who are not yet performing the day. Nobody has opened a laptop on the grass with a little coffee tableau beside it. Nobody is trying to turn a walk into evidence. The dogs are still damp around the muzzle, the runners are still negotiating with their hamstrings, and the skyline sits over the trees like a rumor that may or may not concern you.
 
-I started near the Active Oval and took the path toward Lake Clara Meer, not fast enough to call it a run and not slow enough to call it strolling. This is my preferred speed for thinking. Walking is too polite. Running makes every thought sound urgent. The middle pace gives a person room to edit herself. By the first curve, I had already decided not to answer one email, to return a dress I had been pretending would become useful, and to stop buying peaches from the grocery store when the farmers market is right there acting superior for a reason.
+I started near the Active Oval and took the path toward Lake Clara Meer, not fast enough to call it a run and not slow enough to call it strolling. This is my preferred speed for thinking. Walking is too polite. Running makes every thought sound urgent. The middle pace gives a person room to edit herself. By the first curve, I had already decided not to answer one email, to return a dress I had been pretending would become useful, and to stop buying peaches from the grocery store when the Piedmont Park Green Market is right there on Saturday mornings at the 12th Street entrance, acting superior for a reason.
 
 Atlanta heat changes the body before it changes the day. You feel it in the first small compromises: shorter stride, lower ponytail, fewer heroic ideas. By July, everyone in the city is either adjusting or lying. But in May, before the full lecture begins, Piedmont Park offers a kind of preview. The shade still works. The grass still has some green argument in it. The benches are not too hot. You can believe in moderation.
 

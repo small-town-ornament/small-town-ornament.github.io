@@ -17,6 +17,15 @@
     {{ with .Params.image }}
       <img class="hero-image" src="{{ . }}" alt="">
     {{ end }}
+    {{ if or .Params.location_note .Params.route_note .Params.what_i_wore .Params.where_found .Params.piece_details }}
+      <aside class="article-notes" aria-label="Post details">
+        {{ with .Params.location_note }}<div><span>Location</span><strong>{{ . }}</strong></div>{{ end }}
+        {{ with .Params.route_note }}<div><span>Route</span><strong>{{ . }}</strong></div>{{ end }}
+        {{ with .Params.what_i_wore }}<div><span>What I Wore</span><strong>{{ . }}</strong></div>{{ end }}
+        {{ with .Params.where_found }}<div><span>Where Found</span><strong>{{ . }}</strong></div>{{ end }}
+        {{ with .Params.piece_details }}<div><span>Piece Details</span><strong>{{ . }}</strong></div>{{ end }}
+      </aside>
+    {{ end }}
     <div class="article-body">
       {{ .Content }}
     </div>

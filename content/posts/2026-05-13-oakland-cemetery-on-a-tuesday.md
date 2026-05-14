@@ -3,7 +3,8 @@ title: "Oakland Cemetery On A Tuesday"
 slug: "oakland-cemetery-on-a-tuesday"
 date: 2026-05-13
 segments: ["City Dispatches"]
-image: "/images/oakland-cemetery-on-a-tuesday.png"
+image: "/images/oakland-cemetery-on-a-tuesday.jpg"
+location_note: "Historic Oakland Cemetery, 248 Oakland Ave SE. Enter near the Bell Tower, then let the walk bend toward the Original Six Acres and Jewish sections before looping back."
 tags: ["atlanta", "walking", "city-dispatches"]
 ---
 
@@ -21,6 +22,8 @@ I do not come here for melancholy. I come for proportion. The stones have weathe
 
 There is also the practical matter of walking. Oakland is one of the better places in town to move without being sold wellness. No class time, no branded water bottle, no instructor telling you to thank your body. Just a hill, a path, and the honest report of your calves. I wore sneakers that have lost their vanity and a white shirt that will not survive tomato season, and I left feeling less like I had exercised than like I had returned to myself.
 
-Near the Bell Tower, I watched a squirrel jump from one low branch to another and land with the confidence of a contractor who knows he can charge more. The whole place had that kind of sideways humor. A cemetery can remind you life is short, yes, but Oakland also reminds you life is strange, local, overdressed in patches, and full of people trying to leave a shape behind.
+Near the Bell Tower, I watched a squirrel jump from one low branch to another and land with the confidence of a contractor who knows he can charge more. I kept drifting back toward the older sections, past the Original Six Acres and toward the Jewish grounds, where the city’s story becomes less decorative and more complicated. Margaret Mitchell’s grave is there too, not theatrical, not especially grand, just another marker that forces Atlanta to stand near the myths it keeps selling and revising.
+
+The whole place had that kind of sideways humor. A cemetery can remind you life is short, yes, but Oakland also reminds you life is strange, local, overdressed in patches, and full of people trying to leave a shape behind.
 
 On the way out, I stopped at the gate and looked back for a minute. Not dramatically. Just long enough to notice the way the light had moved across the brick. The city outside was still making all its usual noise. Inside, the cemetery kept its old tempo. I stepped back into Atlanta feeling gently corrected.

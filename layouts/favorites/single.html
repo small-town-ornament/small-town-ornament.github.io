@@ -12,6 +12,10 @@
       <div><span>Category</span><strong>{{ .Params.category | title }}</strong></div>
       <div><span>Neighborhood</span><strong>{{ .Params.neighborhood }}</strong></div>
       <div><span>Rating</span><strong>{{ .Params.rating | title }}</strong></div>
+      {{ with .Params.address }}<div><span>Address</span><strong>{{ . }}</strong></div>{{ end }}
+      {{ with .Params.hours }}<div><span>Hours</span><strong>{{ . }}</strong></div>{{ end }}
+      {{ with .Params.what_to_order }}<div><span>Order</span><strong>{{ . }}</strong></div>{{ end }}
+      {{ with .Params.pro_tip }}<div><span>Pro Tip</span><strong>{{ . }}</strong></div>{{ end }}
     </aside>
     <div class="article-body">
       {{ .Content }}
