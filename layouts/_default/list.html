@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <section class="page-head">
+    <p class="eyebrow">{{ .Section | humanize }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
+  </section>
+  <section class="index-list">
+    {{ range .Pages }}
+      <article class="index-row">
+        {{ with .Params.image }}<img src="{{ . }}" alt="">{{ end }}
+        <div>
+          <p class="meta">{{ .Date.Format "January 2, 2006" }}{{ with .Params.category }} / {{ . }}{{ end }}</p>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ .Summary | plainify | truncate 190 }}</p>
+        </div>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

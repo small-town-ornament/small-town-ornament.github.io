@@ -1,0 +1,23 @@
+baseURL = "https://small-town-ornament.github.io/"
+languageCode = "en-us"
+title = "Small-Town Ornament"
+
+[params]
+  author = "Caroline Grace Mercer"
+  description = "A photo-forward Atlanta journal with Southern roots, city taste, and a point of view."
+
+[permalinks]
+  posts = "/posts/:slug/"
+  favorites = "/favorites/:slug/"
+
+[taxonomies]
+  segment = "segments"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
+[markup.goldmark.renderer]
+  unsafe = true

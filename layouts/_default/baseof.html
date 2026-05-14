@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ with resources.Get "css/ornament.css" | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{ end }}
+    {{ with .OutputFormats.Get "rss" }}
+      <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+    {{ end }}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-mark" href="{{ "/" | relURL }}">Small-Town Ornament</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="{{ "/segments/movement-and-fit/" | relURL }}">Movement</a>
+        <a href="{{ "/segments/city-dispatches/" | relURL }}">City</a>
+        <a href="{{ "/segments/getting-dressed/" | relURL }}">Style</a>
+        <a href="{{ "/favorites/" | relURL }}">Favorites</a>
+        <a href="{{ "/about/" | relURL }}">About</a>
+      </nav>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <p>A journal by {{ .Site.Params.author }}.</p>
+    </footer>
+  </body>
+</html>

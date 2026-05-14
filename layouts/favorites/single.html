@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <article class="article favorite">
+    <header class="article-head">
+      <p class="eyebrow">{{ .Params.category }} / {{ .Params.neighborhood }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="meta">{{ .Params.rating | title }}</p>
+    </header>
+    {{ with .Params.image }}
+      <img class="hero-image" src="{{ . }}" alt="">
+    {{ end }}
+    <aside class="favorite-facts">
+      <div><span>Category</span><strong>{{ .Params.category | title }}</strong></div>
+      <div><span>Neighborhood</span><strong>{{ .Params.neighborhood }}</strong></div>
+      <div><span>Rating</span><strong>{{ .Params.rating | title }}</strong></div>
+    </aside>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

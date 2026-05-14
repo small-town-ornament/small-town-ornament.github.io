@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <article class="article">
+    <header class="article-head">
+      <p class="eyebrow">{{ index .Params.segments 0 }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+    </header>
+    {{ with .Params.image }}
+      <img class="hero-image" src="{{ . }}" alt="">
+    {{ end }}
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

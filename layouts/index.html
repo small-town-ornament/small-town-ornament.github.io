@@ -1,0 +1,60 @@
+{{ define "main" }}
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ $favorites := where .Site.RegularPages "Section" "favorites" }}
+  {{ $featured := index $posts 0 }}
+  <section class="hero">
+    <div class="hero-media">
+      <img src="{{ "/images/editorial-atlanta.png" | relURL }}" alt="Editorial Atlanta street scene in warm evening light">
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">Atlanta journal / Southern roots / real taste</p>
+      <h1>Small-Town Ornament</h1>
+      <p>{{ .Site.Params.description }}</p>
+      {{ with $featured }}
+        <a class="feature-link" href="{{ .RelPermalink }}">Latest: {{ .Title }}</a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="segment-strip" aria-label="Editorial segments">
+    <a href="{{ "/segments/movement-and-fit/" | relURL }}">Movement &amp; Fit</a>
+    <a href="{{ "/segments/city-dispatches/" | relURL }}">City Dispatches</a>
+    <a href="{{ "/segments/getting-dressed/" | relURL }}">Getting Dressed</a>
+    <a href="{{ "/segments/farm-girl-files/" | relURL }}">Farm Girl Files</a>
+    <a href="{{ "/segments/open-season/" | relURL }}">Open Season</a>
+  </section>
+
+  <section class="section-block">
+    <div class="section-head">
+      <p class="eyebrow">Latest writing</p>
+      <h2>The River</h2>
+    </div>
+    <div class="post-grid">
+      {{ range first 6 $posts }}
+        <article class="post-card">
+          {{ with .Params.image }}<img src="{{ . }}" alt="" class="card-image">{{ end }}
+          <p class="meta">{{ .Date.Format "January 2, 2006" }} / {{ index .Params.segments 0 }}</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary | plainify | truncate 130 }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section-block favorites-preview">
+    <div class="section-head">
+      <p class="eyebrow">Favorites</p>
+      <h2>Where I Actually Go</h2>
+    </div>
+    <div class="favorite-grid">
+      {{ range first 3 $favorites }}
+        <article class="favorite-card">
+          {{ with .Params.image }}<img src="{{ . }}" alt="">{{ end }}
+          <p class="meta">{{ .Params.category }} / {{ .Params.neighborhood }}</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary | plainify | truncate 120 }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

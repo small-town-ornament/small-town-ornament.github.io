@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <section class="page-head">
+    <p class="eyebrow">Segment</p>
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="segment-index">
+    {{ range .Pages }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ end }}
+  </section>
+{{ end }}
