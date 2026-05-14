@@ -26,6 +26,7 @@
         {{ with .Params.piece_details }}<div><span>Piece Details</span><strong>{{ . }}</strong></div>{{ end }}
       </aside>
     {{ end }}
+    {{ partial "place-map.html" . }}
     <div class="article-body">
       {{ .Content }}
     </div>

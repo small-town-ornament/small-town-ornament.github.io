@@ -5,6 +5,13 @@ date: 2026-05-14
 segments: ["Movement & Fit"]
 image: "/images/piedmont-park-before-the-heat.jpg"
 route_note: "Start near the 12th Street entrance, loop past the Active Oval and Lake Clara Meer, then cut back before the heat settles in. Best before 7:30 AM."
+route_map_embed: "https://www.google.com/maps?output=embed&saddr=Piedmont+Park+12th+Street+Entrance,+Atlanta,+GA&daddr=Lake+Clara+Meer,+Atlanta,+GA&dirflg=w"
+route_url: "https://www.google.com/maps/dir/?api=1&origin=Piedmont+Park+12th+Street+Entrance,+Atlanta,+GA&destination=Lake+Clara+Meer,+Atlanta,+GA&travelmode=walking"
+route_steps:
+  - "Enter from 12th Street before the Green Market tables arrive."
+  - "Cut toward the Active Oval while the grass is still holding dew."
+  - "Follow the path toward Lake Clara Meer and stay under the trees where the shade still works."
+  - "Loop back toward the meadow before the park becomes public theater."
 what_i_wore: "Black running shorts, white tank, old broken-in trainers, hair up, no performance costume."
 tags: ["atlanta", "running", "morning"]
 ---

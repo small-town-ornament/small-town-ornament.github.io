@@ -11,6 +11,9 @@ address: "4186 Buford Hwy NE, Atlanta, GA 30345"
 hours: "Daily, 10:00 AM-8:30 PM"
 what_to_order: "Pho tai with herbs, lime, and the condiments added at the table"
 pro_tip: "Go before the dinner rush, sit with the broth before adjusting it, and do not overthink the room."
+parking: "Shared Buford Highway strip-mall lot; easiest before the dinner rush."
+price: "$"
+map_embed: "https://www.google.com/maps?q=Pho+Dai+Loi+2,+4186+Buford+Hwy+NE,+Atlanta,+GA+30345&output=embed"
 tags: ["atlanta", "food", "favorites"]
 ---
 

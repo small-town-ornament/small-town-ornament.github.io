@@ -136,6 +136,26 @@ def test_place_based_content_is_grounded() -> None:
             assert frontmatter_value(post, field)
 
 
+def test_real_places_render_maps_and_routes(tmp_path: Path) -> None:
+    output = build_site(tmp_path)
+
+    piedmont = read(output / "posts" / "piedmont-park-before-the-heat" / "index.html")
+    assert "route-card" in piedmont
+    assert "Piedmont&#43;Park&#43;12th&#43;Street&#43;Entrance" in piedmont
+    assert "Open route" in piedmont
+
+    oakland = read(output / "posts" / "oakland-cemetery-on-a-tuesday" / "index.html")
+    assert "place-map" in oakland
+    assert "Historic&#43;Oakland&#43;Cemetery" in oakland
+    assert "Margaret Mitchell" in oakland
+
+    favorite = read(output / "favorites" / "pho-dai-loi-2" / "index.html")
+    assert "place-map" in favorite
+    assert "Pho&#43;Dai&#43;Loi&#43;2" in favorite
+    assert "Parking" in favorite
+    assert "Price" in favorite
+
+
 def test_gallery_shortcode_supports_inline_photo_essays() -> None:
     shortcode = ROOT / "layouts" / "shortcodes" / "post-image.html"
     assert shortcode.exists()

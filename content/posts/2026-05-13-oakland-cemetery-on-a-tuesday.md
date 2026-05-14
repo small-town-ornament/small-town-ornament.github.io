@@ -5,6 +5,14 @@ date: 2026-05-13
 segments: ["City Dispatches"]
 image: "/images/oakland-cemetery-on-a-tuesday.jpg"
 location_note: "Historic Oakland Cemetery, 248 Oakland Ave SE. Enter near the Bell Tower, then let the walk bend toward the Original Six Acres and Jewish sections before looping back."
+map_embed: "https://www.google.com/maps?q=Historic+Oakland+Cemetery,+248+Oakland+Ave+SE,+Atlanta,+GA&output=embed"
+route_map_embed: "https://www.google.com/maps?output=embed&saddr=Historic+Oakland+Cemetery+Bell+Tower,+Atlanta,+GA&daddr=Jewish+Grounds,+Historic+Oakland+Cemetery,+Atlanta,+GA&dirflg=w"
+route_url: "https://www.google.com/maps/dir/?api=1&origin=Historic+Oakland+Cemetery+Bell+Tower,+Atlanta,+GA&destination=Jewish+Grounds,+Historic+Oakland+Cemetery,+Atlanta,+GA&travelmode=walking"
+route_steps:
+  - "Enter at the Bell Tower gate and let Memorial Drive fall behind the wall."
+  - "Move through the older family plots and the Original Six Acres."
+  - "Cut toward the Jewish grounds instead of treating the cemetery like one backdrop."
+  - "Pause near Margaret Mitchell's marker, then loop back toward the Bell Tower."
 tags: ["atlanta", "walking", "city-dispatches"]
 ---
 

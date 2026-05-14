@@ -6,6 +6,7 @@ segments: ["Getting Dressed"]
 image: "/images/decatur-jacket.jpg"
 where_found: "Kudzu Antiques + Modern, 2928 E Ponce de Leon Ave, Decatur, GA"
 piece_details: "Tobacco-brown wool jacket, late-1980s-to-1990s feel, replaced buttons, structured shoulder, under-$80 rack energy."
+map_embed: "https://www.google.com/maps?q=Kudzu+Antiques+%2B+Modern,+2928+E+Ponce+de+Leon+Ave,+Decatur,+GA&output=embed"
 tags: ["vintage", "decatur", "style"]
 ---
 

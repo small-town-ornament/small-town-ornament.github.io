@@ -435,6 +435,42 @@ h3 {
   margin-top: 0.6rem;
 }
 
+.place-map,
+.route-card {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 18px;
+}
+
+.place-map iframe,
+.route-card iframe {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  display: block;
+  width: 100%;
+}
+
+.route-card {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1.15fr);
+}
+
+.route-card p:not(.eyebrow) {
+  color: var(--muted);
+  margin: 0.3rem 0 0;
+}
+
+.route-card ol {
+  color: var(--brown);
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.route-card li + li {
+  margin-top: 0.4rem;
+}
+
 .segment-index {
   display: grid;
   gap: 10px;
@@ -501,6 +537,7 @@ h3 {
   .index-row,
   .favorite-facts,
   .article-notes,
+  .route-card,
   .segment-strip,
   .next-prev,
   .subscribe-panel {

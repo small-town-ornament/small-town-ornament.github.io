@@ -16,7 +16,10 @@
       {{ with .Params.hours }}<div><span>Hours</span><strong>{{ . }}</strong></div>{{ end }}
       {{ with .Params.what_to_order }}<div><span>Order</span><strong>{{ . }}</strong></div>{{ end }}
       {{ with .Params.pro_tip }}<div><span>Pro Tip</span><strong>{{ . }}</strong></div>{{ end }}
+      {{ with .Params.parking }}<div><span>Parking</span><strong>{{ . }}</strong></div>{{ end }}
+      {{ with .Params.price }}<div><span>Price</span><strong>{{ . }}</strong></div>{{ end }}
     </aside>
+    {{ partial "place-map.html" . }}
     <div class="article-body">
       {{ .Content }}
     </div>

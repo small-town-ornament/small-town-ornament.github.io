@@ -1,0 +1,35 @@
+{{- $context := . -}}
+{{- with $context.Params.map_embed -}}
+  <section class="place-map" aria-label="Map">
+    <iframe
+      src="{{ . }}"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Map for {{ $context.Title }}"></iframe>
+  </section>
+{{- end -}}
+{{- if or $context.Params.route_map_embed $context.Params.route_url $context.Params.route_steps -}}
+  <section class="route-card" aria-label="Route">
+    <div>
+      <p class="eyebrow">Route</p>
+      {{ with $context.Params.route_note }}<p>{{ . }}</p>{{ end }}
+      {{ with $context.Params.route_steps }}
+        <ol>
+          {{ range . }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ol>
+      {{ end }}
+      {{ with $context.Params.route_url }}
+        <a class="back-link" href="{{ . }}">Open route</a>
+      {{ end }}
+    </div>
+    {{ with $context.Params.route_map_embed }}
+      <iframe
+        src="{{ . }}"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Route map for {{ $context.Title }}"></iframe>
+    {{ end }}
+  </section>
+{{- end -}}
