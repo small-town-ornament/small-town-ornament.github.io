@@ -86,17 +86,24 @@ main {
 }
 
 .hero {
-  align-items: center;
+  align-items: end;
+  background: var(--charcoal);
   display: grid;
-  gap: 34px;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-  padding: 18px 0 24px;
+  min-height: min(760px, calc(100vh - 74px));
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  padding: clamp(28px, 6vw, 72px);
+  position: relative;
+  width: 100vw;
 }
 
 .hero-media {
-  height: min(560px, calc(100vh - 260px));
-  min-height: 420px;
+  display: block;
+  inset: 0;
+  opacity: 0.82;
   overflow: hidden;
+  position: absolute;
 }
 
 .hero-media img,
@@ -105,16 +112,37 @@ main {
 .index-row img,
 .hero-image {
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
 
 .hero-media img {
   height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
 }
 
 .hero-copy {
-  align-self: center;
+  color: var(--cream);
+  max-width: min(760px, 100%);
+  position: relative;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.36);
+  z-index: 1;
+}
+
+.hero-copy h1,
+.hero-copy p:not(.eyebrow) {
+  color: var(--cream);
+}
+
+.hero .feature-link {
+  border-bottom-color: var(--terracotta);
+  color: var(--cream);
+}
+
+.hero .hero-copy p:not(.eyebrow) {
+  color: var(--cream);
 }
 
 .eyebrow,
@@ -246,7 +274,6 @@ h3 {
 
 .post-card .card-image,
 .favorite-card img {
-  aspect-ratio: 4 / 3;
   height: auto;
   margin-bottom: 14px;
 }
@@ -271,6 +298,14 @@ h3 {
   padding-top: 52px;
 }
 
+.page-portrait {
+  display: block;
+  height: auto;
+  margin: 28px 0;
+  object-fit: contain;
+  width: 100%;
+}
+
 .page-head h1,
 .article-head h1 {
   font-size: clamp(2.6rem, 7vw, 5.4rem);
@@ -292,12 +327,10 @@ h3 {
 }
 
 .index-row img {
-  aspect-ratio: 4 / 3;
   height: auto;
 }
 
 .hero-image {
-  aspect-ratio: 16 / 9;
   height: auto;
   margin-top: 28px;
 }
@@ -545,12 +578,11 @@ h3 {
   }
 
   .hero {
-    min-height: auto;
+    min-height: 620px;
   }
 
   .hero-media {
-    height: 300px;
-    min-height: 300px;
+    height: auto;
   }
 
   .section-head {

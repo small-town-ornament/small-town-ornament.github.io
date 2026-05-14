@@ -2,6 +2,7 @@
   <section class="page-head">
     <p class="eyebrow">{{ .Section | humanize }}</p>
     <h1>{{ .Title }}</h1>
+    {{ with .Params.image }}<img class="page-portrait" src="{{ . }}" alt="">{{ end }}
     {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
   </section>
   <section class="index-list">

@@ -87,8 +87,8 @@ def test_sample_content_uses_public_frontmatter_schemas(tmp_path: Path) -> None:
 
 def test_launch_posts_are_substantial_and_cover_farm_girl_files() -> None:
     posts = post_files()
-    assert len(posts) >= 4
-    assert any("Farm Girl Files" in read(post) for post in posts)
+    assert len(posts) >= 6
+    assert sum(1 for post in posts if "Farm Girl Files" in read(post)) >= 3
 
     for post in posts:
         assert word_count(post) >= 400, f"{post.name} needs to read like an essay"
@@ -110,10 +110,27 @@ def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> N
     output = build_site(tmp_path)
 
     index = read(output / "index.html")
+    assert "Tuesday is when a city tells the truth about itself." in index
+    assert "Issue board" in index
     assert "Subscribe" in index
     assert 'href="/index.xml"' in index
     assert "Monthly small-town dispatches" in index
     assert "Farm Girl Files" in index
+
+
+def test_about_and_favorites_have_caroline_voice_and_visuals(tmp_path: Path) -> None:
+    output = build_site(tmp_path)
+
+    about = read(output / "about" / "index.html")
+    assert "Evergreen, Alabama" in about
+    assert "Crimson Cabaret" in about
+    assert "not a lifestyle brand" in about
+    assert "/images/about-caroline.jpg" in about
+
+    favorites = read(output / "favorites" / "index.html")
+    assert "not a civic service announcement" in favorites
+    assert "earned a place in my actual rotation" in favorites
+    assert "where to park" in favorites
 
 
 def test_place_based_content_is_grounded() -> None:
@@ -165,6 +182,18 @@ def test_gallery_shortcode_supports_inline_photo_essays() -> None:
     assert "figcaption" in text
 
 
+def test_posts_render_inline_photo_essays(tmp_path: Path) -> None:
+    output = build_site(tmp_path)
+
+    for post in post_files():
+        source = read(post)
+        assert source.count("src: \"/images/") >= 3, f"{post.name} needs gallery images"
+        assert source.count("{{< post-image") >= 3, f"{post.name} needs inline photo placement"
+
+        rendered = read(output / "posts" / frontmatter_value(post, "slug") / "index.html")
+        assert rendered.count("post-figure") >= 3
+
+
 def test_static_assets_are_present_and_self_contained() -> None:
     css_path = ROOT / "assets" / "css" / "ornament.css"
     assert css_path.exists()
@@ -184,3 +213,12 @@ def test_static_assets_are_present_and_self_contained() -> None:
         assert asset.exists()
 
     assert shutil.which("hugo"), "hugo must be installed for local publishing"
+
+
+def test_editorial_images_are_not_cropped_by_fixed_boxes() -> None:
+    css = (ROOT / "assets" / "css" / "ornament.css").read_text(encoding="utf-8")
+
+    assert "object-fit: contain" in css
+    assert "object-fit: cover" not in css
+    assert ".hero-image {\n  aspect-ratio" not in css
+    assert ".post-card .card-image,\n.favorite-card img {\n  aspect-ratio" not in css
