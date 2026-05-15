@@ -1,7 +1,8 @@
 ---
 title: "Triathlon Training Started As A Dare"
 slug: "triathlon-training-started-as-a-dare"
-date: 2026-05-14
+date: 2026-05-15
+description: "A first Open Season dispatch on triathlon training, performance, patience, and learning to keep a promise without turning it into theater."
 segments: ["Open Season"]
 image: "/images/open-season-southern.jpg"
 location_note: "Atlanta training loop: early run paths, apartment bike setup, and lap-pool mornings; exact private locations withheld."

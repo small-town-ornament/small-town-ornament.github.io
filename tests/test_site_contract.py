@@ -113,6 +113,7 @@ def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> N
     index = read(output / "index.html")
     assert "Tuesday is when a city tells the truth about itself." in index
     assert "Caroline walking on an Atlanta street in golden-hour film light" in index
+    assert 'href="/posts/triathlon-training-started-as-a-dare/">Latest: Triathlon Training Started As A Dare' in index
     assert "Editorial Atlanta street scene" not in index
     assert "Issue board" in index
     assert "Subscribe" in index
