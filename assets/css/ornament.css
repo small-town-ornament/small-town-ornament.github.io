@@ -132,7 +132,7 @@ main {
   height: 100%;
   max-height: none;
   object-fit: cover;
-  object-position: center;
+  object-position: center bottom;
 }
 
 .hero-copy {
@@ -630,6 +630,10 @@ h3 {
 
   .hero-media {
     height: auto;
+  }
+
+  .hero-media img {
+    object-position: 75% bottom;
   }
 
   .section-head {

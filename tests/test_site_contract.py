@@ -112,6 +112,8 @@ def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> N
 
     index = read(output / "index.html")
     assert "Tuesday is when a city tells the truth about itself." in index
+    assert "Caroline walking on an Atlanta street in golden-hour film light" in index
+    assert "Editorial Atlanta street scene" not in index
     assert "Issue board" in index
     assert "Subscribe" in index
     assert 'href="/index.xml"' in index
@@ -221,11 +223,12 @@ def test_magazine_polish_from_latest_folio_critique(tmp_path: Path) -> None:
     assert ".footer-nav" in css
 
     open_season = read(output / "segments" / "open-season" / "index.html")
-    assert "What Atlanta Gets Wrong About Southern" in open_season
+    assert "Triathlon Training Started As A Dare" in open_season
     assert "The essays that do not behave" in open_season
 
-    post = read(output / "posts" / "what-atlanta-gets-wrong-about-southern" / "index.html")
-    assert "Real Southern is weirder" in post
+    post = read(output / "posts" / "triathlon-training-started-as-a-dare" / "index.html")
+    assert "No heroic language. No transformation story." in post
+    assert "Swimming is the rude one." in post
     assert "blockquote" in post
 
     favorites = read(output / "favorites" / "index.html")
@@ -247,6 +250,9 @@ def test_static_assets_are_present_and_self_contained() -> None:
         ROOT / "static" / "images" / "piedmont-park-before-the-heat.jpg",
         ROOT / "static" / "images" / "decatur-jacket.jpg",
         ROOT / "static" / "images" / "screened-porch-to-city-balcony.jpg",
+        ROOT / "static" / "images" / "open-season-southern.jpg",
+        ROOT / "static" / "images" / "gallery" / "triathlon-bike-detail.jpg",
+        ROOT / "static" / "images" / "gallery" / "triathlon-pool-detail.jpg",
         ROOT / "static" / "images" / "buford-highway-pho.jpg",
         ROOT / "static" / "favicon.ico",
     ]:
@@ -263,3 +269,15 @@ def test_editorial_images_are_not_cropped_by_fixed_boxes() -> None:
     assert ".hero-media img {\n  height: 100%;\n  max-height: none;\n  object-fit: cover;" in css
     assert ".hero-image {\n  aspect-ratio" not in css
     assert ".post-card .card-image,\n.favorite-card img {\n  aspect-ratio" not in css
+
+
+def test_future_image_direction_requires_film_grain_and_natural_light() -> None:
+    direction = read(ROOT / "docs" / "image-direction.md")
+
+    assert "Kodak Portra 400" in direction
+    assert "visible grain" in direction
+    assert "Natural or overcast lighting only" in direction
+    assert "no studio-perfect light" in direction
+    assert "Caroline identity anchors only" in direction
+    assert "do not use prior generated blog art" in direction
+    assert "do not cut off the top or bottom" in direction
