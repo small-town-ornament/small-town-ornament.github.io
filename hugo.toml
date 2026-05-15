@@ -5,6 +5,7 @@ title = "Small-Town Ornament"
 [params]
   author = "Caroline Grace Mercer"
   description = "A photo-forward Atlanta journal with Southern roots, city taste, and a point of view."
+  og_image = "/images/editorial-atlanta.jpg"
 
 [permalinks]
   posts = "/posts/:slug/"

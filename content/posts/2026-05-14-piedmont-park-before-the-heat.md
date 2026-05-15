@@ -38,6 +38,8 @@ That early, the park is not empty. It is better than empty. It is occupied by pe
 
 I started near the Active Oval and took the path toward Lake Clara Meer, not fast enough to call it a run and not slow enough to call it strolling. This is my preferred speed for thinking. Walking is too polite. Running makes every thought sound urgent. The middle pace gives a person room to edit herself. By the first curve, I had already decided not to answer one email, to return a dress I had been pretending would become useful, and to stop buying peaches from the grocery store when the Piedmont Park Green Market is right there on Saturday mornings at the 12th Street entrance, acting superior for a reason.
 
+> The middle pace gives a person room to edit herself.
+
 {{< post-image 1 >}}
 
 Atlanta heat changes the body before it changes the day. You feel it in the first small compromises: shorter stride, lower ponytail, fewer heroic ideas. By July, everyone in the city is either adjusting or lying. But in May, before the full lecture begins, Piedmont Park offers a kind of preview. The shade still works. The grass still has some green argument in it. The benches are not too hot. You can believe in moderation.

@@ -10,17 +10,17 @@ gallery:
   - src: "/images/first-thing-own-money.jpg"
     alt: "Caroline holding a leather belt and receipt in warm window light"
     caption: "The first purchase was not glamorous. That was the point."
-  - src: "/images/gallery/decatur-rack-texture.jpg"
-    alt: "Vintage clothing textures on a crowded rack"
+  - src: "/images/gallery/first-belt-receipt-detail.jpg"
+    alt: "Brown leather belt, denim, and receipt in warm window light"
     caption: "Built taste keeps asking what will last."
-  - src: "/images/gallery/decatur-mirror-try-on.jpg"
-    alt: "Caroline trying on a wool jacket in a shop mirror"
-    caption: "Choosing is a muscle."
+  - src: "/images/gallery/first-cashbox-detail.jpg"
+    alt: "Small cash box, folded bills, and leather belt edge on a wooden table"
+    caption: "Choosing is a muscle, and so is paying."
 ---
 
 The first thing I bought with my own money was not beautiful enough to become a legend.
 
-That is important. People like origin stories better when they arrive with a little shine on them: the first dress, the first pair of heels, the first object that announced a girl was becoming someone. Mine was a belt. Brown leather, simple buckle, stiff enough to make a point. I bought it because I needed it, because it matched more than one thing, and because the price made my stomach do math before my hand moved toward the register.
+That's important. People like origin stories better when they arrive with a little shine on them: the first dress, the first pair of heels, the first object that announced a girl was becoming someone. Mine was a belt. Brown leather, simple buckle, stiff enough to make a point. I bought it because I needed it, because it matched more than one thing, and because the price made my stomach do math before my hand moved toward the register.
 
 {{< post-image 0 >}}
 
@@ -30,13 +30,15 @@ So buying a belt was not about the belt.
 
 It was about the first clean line between wanting and deciding. My own dollars, my own judgment, my own consequence if I chose wrong. Nobody had to approve the shade of brown. Nobody had to make the case that it was practical. I had already made the case to myself, which is a different kind of permission.
 
-I still think about that when I shop now, even in places with better lighting and softer music. Built taste is not the same as inherited taste. Inherited taste often arrives with confidence already attached. Built taste has to prove itself item by item. It asks annoying questions. Will this last? Will I still want it when nobody compliments it? Am I buying the thing or the version of myself I hope comes with it? Can I wear it on a real Tuesday?
+I still think about that when I shop now, even in places with better lighting and softer music. Built taste isn't the same as inherited taste. Inherited taste often arrives with confidence already attached. Built taste has to prove itself item by item. It asks annoying questions. Will this last? Will I still want it when nobody compliments it? Am I buying the thing or the version of myself I hope comes with it? Can I wear it on a real Tuesday?
+
+> Built taste has to prove itself item by item.
 
 {{< post-image 1 >}}
 
-That last question has saved me more money than any budgeting app. A real Tuesday is ruthless. It does not care that a dress looked poetic in a fitting room. It wants to know whether you can sit down, sweat a little, carry groceries, answer an email in a parking lot, and still feel like yourself. The belt passed because it was not trying to transform me. It was trying to help my clothes behave.
+That last question has saved me more money than any budgeting app. A real Tuesday is ruthless. It doesn't care that a dress looked poetic in a fitting room. It wants to know whether you can sit down, sweat a little, carry groceries, answer an email in a parking lot, and still feel like yourself. The belt passed because it wasn't trying to transform me. It was trying to help my clothes behave.
 
-There is a humility in practical beauty that I trust. A good belt, a jacket with weight, a table that does not wobble, a bowl that feels right in the hand. These things do not beg to be admired. They become part of the day and quietly improve it. That is the kind of luxury I understand best: not extravagance, but relief.
+There's a humility in practical beauty that I trust. A good belt, a jacket with weight, a table that doesn't wobble, a bowl that feels right in the hand. These things don't beg to be admired. They become part of the day and quietly improve it. That's the kind of luxury I understand best: not extravagance, but relief.
 
 {{< post-image 2 >}}
 
@@ -44,4 +46,4 @@ I have bought prettier things since then. More expensive things. Things that cam
 
 But the belt stays in my mind because it was the first purchase that made taste feel like responsibility. Not the responsibility to look correct, but the responsibility to choose honestly.
 
-That is still the standard. Earn it, choose it, use it, tell the truth about whether it worked.
+That's still the standard. Earn it, choose it, use it, tell the truth about whether it worked.

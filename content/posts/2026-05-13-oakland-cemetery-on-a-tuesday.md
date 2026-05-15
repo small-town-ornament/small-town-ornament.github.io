@@ -38,6 +38,8 @@ Weekends at Oakland can feel like a production, in the same way every beautiful 
 
 The cemetery has a way of making the neighborhood around it feel more legible. Cabbagetown is still Cabbagetown, Grant Park is still Grant Park, and the BeltLine still has its parade of strollers, iced coffee, and dogs with better social lives than their owners. But standing among the mausoleums, you remember the city is not new just because half the restaurants are. Atlanta is forever tearing down and starting over, forever insisting the next version will be cleaner, taller, more efficient, less haunted. Oakland keeps receipts.
 
+> Oakland keeps receipts.
+
 I do not come here for melancholy. I come for proportion. The stones have weathered into colors no paint brand could name correctly. The iron fences make small rooms out of air. The paths bend just enough to keep the walk from becoming a march. Every few minutes, the skyline appears above the trees, and it looks both ambitious and temporary, like a girl who has overdressed for a family reunion.
 
 {{< post-image 1 >}}

@@ -38,6 +38,8 @@ There is a particular pleasure in shopping in Decatur because the city has never
 
 Vintage shopping has taught me that usefulness is more seductive than novelty. The pieces I keep are rarely the loudest ones. They are the ones that solve small daily problems: the dress that behaves in humidity, the belt that makes a plain skirt look intentional, the jacket that turns "I had ten minutes" into "I meant to do this." Clothing does not need to carry the whole self. It only needs to help the self leave the house.
 
+> Usefulness is more seductive than novelty.
+
 I checked the pockets before buying it because I always check the pockets. There was nothing inside, which felt almost disappointing. I like evidence. A receipt, a movie ticket, a button wrapped in tissue. Something to prove the previous owner also ran late, changed plans, put her hands somewhere while waiting for a table. But the emptiness had its own invitation. Fine, the jacket seemed to say. Start your own record.
 
 At home, I steamed it and let it hang on the back of a chair for two days, which is my way of seeing whether a piece belongs or is simply charming me from a distance. It passed. I wore it to the post office, then to coffee, then to pick up groceries I could have ordered but did not want to. Every time, it gave the same service: a cleaner line, a little weather, a sense that the day had edges.

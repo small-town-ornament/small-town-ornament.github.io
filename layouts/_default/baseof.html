@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) }}
+    {{ $description := cond (ne .Description "") .Description .Site.Params.description }}
+    {{ $image := .Params.image | default .Site.Params.og_image | default "/images/editorial-atlanta.jpg" }}
+    {{ $absoluteImage := absURL $image }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ $absoluteImage }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $absoluteImage }}">
     {{ with resources.Get "css/ornament.css" | minify | fingerprint }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
     {{ end }}
@@ -29,7 +43,13 @@
     <footer class="site-footer">
       <p><strong>Small-Town Ornament</strong> is a journal by {{ .Site.Params.author }}.</p>
       <p>Monthly small-town dispatches on Atlanta, movement, getting dressed, favorites, and what follows a girl from a farm porch into the city.</p>
-      <a href="{{ "/index.xml" | relURL }}">Subscribe via RSS</a>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="{{ "/posts/" | relURL }}">Writing</a>
+        <a href="{{ "/segments/farm-girl-files/" | relURL }}">Farm Girl Files</a>
+        <a href="{{ "/favorites/" | relURL }}">Favorites</a>
+        <a href="{{ "/about/" | relURL }}">About</a>
+        <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      </nav>
     </footer>
   </body>
 </html>

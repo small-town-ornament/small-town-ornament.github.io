@@ -87,8 +87,9 @@ def test_sample_content_uses_public_frontmatter_schemas(tmp_path: Path) -> None:
 
 def test_launch_posts_are_substantial_and_cover_farm_girl_files() -> None:
     posts = post_files()
-    assert len(posts) >= 6
+    assert len(posts) >= 7
     assert sum(1 for post in posts if "Farm Girl Files" in read(post)) >= 3
+    assert any("Open Season" in read(post) for post in posts)
 
     for post in posts:
         assert word_count(post) >= 400, f"{post.name} needs to read like an essay"
@@ -116,6 +117,8 @@ def test_homepage_invites_subscription_and_deeper_discovery(tmp_path: Path) -> N
     assert 'href="/index.xml"' in index
     assert "Monthly small-town dispatches" in index
     assert "Farm Girl Files" in index
+    assert 'property="og:image"' in index
+    assert 'name="twitter:card" content="summary_large_image"' in index
 
 
 def test_about_and_favorites_have_caroline_voice_and_visuals(tmp_path: Path) -> None:
@@ -132,14 +135,23 @@ def test_about_and_favorites_have_caroline_voice_and_visuals(tmp_path: Path) -> 
     assert "earned a place in my actual rotation" in favorites
     assert "where to park" in favorites
 
+    posts_index = read(output / "posts" / "index.html")
+    assert "This is the main table" in posts_index
+    assert "earn its length" in posts_index
+
 
 def test_place_based_content_is_grounded() -> None:
-    favorite = ROOT / "content" / "favorites" / "2026-05-14-buford-highway-pho.md"
-    assert frontmatter_value(favorite, "title") != "Buford Highway Pho"
-    assert frontmatter_value(favorite, "address")
-    assert frontmatter_value(favorite, "hours")
-    assert frontmatter_value(favorite, "what_to_order")
-    assert frontmatter_value(favorite, "pro_tip")
+    favorites = sorted((ROOT / "content" / "favorites").glob("*.md"))
+    assert len(favorites) >= 4
+
+    for favorite in favorites:
+        if favorite.name == "_index.md":
+            continue
+        assert frontmatter_value(favorite, "title") != "Buford Highway Pho"
+        assert frontmatter_value(favorite, "address")
+        assert frontmatter_value(favorite, "hours")
+        assert frontmatter_value(favorite, "what_to_order")
+        assert frontmatter_value(favorite, "pro_tip")
 
     required_post_fields = {
         "2026-05-13-oakland-cemetery-on-a-tuesday.md": ["location_note"],
@@ -172,6 +184,10 @@ def test_real_places_render_maps_and_routes(tmp_path: Path) -> None:
     assert "Parking" in favorite
     assert "Price" in favorite
 
+    route_favorite = read(output / "favorites" / "piedmont-park-morning-loop" / "index.html")
+    assert "route-card" in route_favorite
+    assert "Open route" in route_favorite
+
 
 def test_gallery_shortcode_supports_inline_photo_essays() -> None:
     shortcode = ROOT / "layouts" / "shortcodes" / "post-image.html"
@@ -192,6 +208,30 @@ def test_posts_render_inline_photo_essays(tmp_path: Path) -> None:
 
         rendered = read(output / "posts" / frontmatter_value(post, "slug") / "index.html")
         assert rendered.count("post-figure") >= 3
+
+
+def test_magazine_polish_from_latest_folio_critique(tmp_path: Path) -> None:
+    output = build_site(tmp_path)
+
+    css = read(ROOT / "assets" / "css" / "ornament.css")
+    assert ".hero-media img" in css
+    assert "object-fit: cover" in css
+    assert ".article-body blockquote" in css
+    assert "body::before" in css
+    assert ".footer-nav" in css
+
+    open_season = read(output / "segments" / "open-season" / "index.html")
+    assert "What Atlanta Gets Wrong About Southern" in open_season
+    assert "The essays that do not behave" in open_season
+
+    post = read(output / "posts" / "what-atlanta-gets-wrong-about-southern" / "index.html")
+    assert "Real Southern is weirder" in post
+    assert "blockquote" in post
+
+    favorites = read(output / "favorites" / "index.html")
+    assert "Kudzu Antiques" in favorites
+    assert "Piedmont Park Morning Loop" in favorites
+    assert "Oakland Cemetery Tuesday Walk" in favorites
 
 
 def test_static_assets_are_present_and_self_contained() -> None:
@@ -219,6 +259,7 @@ def test_editorial_images_are_not_cropped_by_fixed_boxes() -> None:
     css = (ROOT / "assets" / "css" / "ornament.css").read_text(encoding="utf-8")
 
     assert "object-fit: contain" in css
-    assert "object-fit: cover" not in css
+    assert ".hero-media img {\n  height: 100%;" in css
+    assert ".hero-media img {\n  height: 100%;\n  max-height: none;\n  object-fit: cover;" in css
     assert ".hero-image {\n  aspect-ratio" not in css
     assert ".post-card .card-image,\n.favorite-card img {\n  aspect-ratio" not in css

@@ -2,6 +2,16 @@
   <section class="page-head">
     <p class="eyebrow">{{ .Section | humanize }}</p>
     <h1>{{ .Title }}</h1>
+    {{ if eq .Section "segments" }}
+      {{ $segmentVoice := dict
+        "Farm Girl Files" "Where the porch, the kitchen, the money, and the leaving all keep talking. This is the part of the magazine that refuses to pretend a city girl arrives without weather on her."
+        "Open Season" "The essays that do not behave well enough for a cleaner label. Culture, manners, taste, annoyance, affection, and whatever Atlanta makes impossible to ignore."
+        "City Dispatches" "Atlanta as I actually walk it: cemeteries, strip malls, sidewalks, restaurants, routes, and the odd public mood a place gives away before it means to."
+        "Movement & Fit" "Movement without the wellness costume. Routes, heat, gear, posture, discipline, and the body as something to listen to instead of market."
+        "Getting Dressed" "Clothes with reasons. What works, what lasts, what tells on a day, and why usefulness is usually more seductive than novelty."
+      }}
+      {{ with index $segmentVoice .Title }}<div class="lead"><p>{{ . }}</p></div>{{ end }}
+    {{ end }}
     {{ with .Params.image }}<img class="page-portrait" src="{{ . }}" alt="">{{ end }}
     {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
   </section>
