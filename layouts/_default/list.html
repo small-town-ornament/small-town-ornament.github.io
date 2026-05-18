@@ -15,8 +15,12 @@
     {{ with .Params.image }}<img class="page-portrait" src="{{ . }}" alt="">{{ end }}
     {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
   </section>
+  {{ $pages := .Pages }}
+  {{ if and (eq .Section "segments") (eq (len $pages) 0) }}
+    {{ $pages = where .Site.RegularPages "Params.segments" "intersect" (slice .Title) }}
+  {{ end }}
   <section class="index-list">
-    {{ range .Pages }}
+    {{ range $pages }}
       <article class="index-row">
         {{ with .Params.image }}<img src="{{ . }}" alt="">{{ end }}
         <div>
